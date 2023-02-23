@@ -1,0 +1,13 @@
+input[type=checkbox]:checked {
+    background-color: #ff7b00 !important;
+    color: #ffffff !important;
+}
+
+input:focus {
+    outline: none !important;
+    border: 2px solid #ff7b00;
+}
+
+#homepage-task-list::-webkit-scrollbar{
+    display: none;
+}
