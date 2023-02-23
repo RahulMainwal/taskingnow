@@ -66,15 +66,15 @@ export const AddPage = () => {
                 <br />
                 <div>
                     <label style={{ fontSize: "22px" }}>Title</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title here..." style={getState.mode === "light"? { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px"}: { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", backgroundColor: "#474747",color: "white" }} />
+                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title here..." style={getState.mode === "light"? { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", border: "2px solid black"}: { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", backgroundColor: "#474747",color: "white", border: "2px solid black" }} />
                     <br />
                     <br />
                     <label style={{ fontSize: "22px" }}>Time</label>
-                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)} style={getState.mode === "light"? { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px"}: { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", backgroundColor: "#474747",color: "white" }} />
+                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)} style={getState.mode === "light"? { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", border: "2px solid black"}: { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", backgroundColor: "#474747",color: "white",  border: "2px solid black" }} />
                     <br />
                     <br />
-                    <br />
-                    <select onChange={(e) => setStatus(e.target.value)} value={status} style={getState.mode === "light"? { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px"}: { width: "100%", padding: "5px 10px", fontSize: "20px", borderRadius: "5px", backgroundColor: "#474747",color: "white" }}  >
+                    <label style={{ fontSize: "22px" }}>Status</label>
+                    <select onChange={(e) => setStatus(e.target.value)} value={status} style={getState.mode === "light"? { width: "100%", padding: "5px 10px", fontSize: "23px", borderRadius: "5px", border: "2px solid black"}: { width: "100%", padding: "5px 10px", fontSize: "23px", borderRadius: "5px", backgroundColor: "#474747",color: "white", border: "2px solid black" }}  >
                         <option value="incompleted">Incompleted</option>
                         <option value="completed">Completed</option>
                     </select>
