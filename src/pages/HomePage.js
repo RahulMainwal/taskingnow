@@ -47,7 +47,7 @@ export const HomePage = () => {
 
   return (
     <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>
-    <div className="card" style={getState.mode === "light" ? { left: "0", right: "0", margin: "auto", padding: "20px" }: { backgroundColor: "#303335", color: "#d2d3db", width: "400px", left: "0", right: "0", margin: "auto", padding: "20px", height: "86vh" }}>
+    <div className="card" style={getState.mode === "light" ? { left: "0", right: "0", margin: "auto", padding: "20px" }: { backgroundColor: "#303335", color: "#d2d3db", left: "0", right: "0", margin: "auto", padding: "20px", height: "86vh" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div className="dropdown">
           <span
