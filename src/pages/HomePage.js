@@ -43,6 +43,19 @@ export const HomePage = () => {
   const deleteAllTasksHandler = () => {
     dispatch(deleteAllTasks())
   }
+
+  const twentyFourHoursConvertionIntoTwelveHours = (twentyFourHours) => {
+    if(twentyFourHours === ""){
+      return ""
+    }
+    else{
+      const hoursTwentyFourIntoTwelve = twentyFourHours.charAt(0)+twentyFourHours.charAt(1) === "00" ? 12 : parseInt(twentyFourHours.charAt(0)+twentyFourHours.charAt(1)) > 12 ? parseInt(twentyFourHours.charAt(0)+twentyFourHours.charAt(1)) - 12 : parseInt(twentyFourHours.charAt(0)+twentyFourHours.charAt(1));
+    const minutes = twentyFourHours.charAt(3)+twentyFourHours.charAt(4);
+    const amOrPm = twentyFourHours.charAt(0)+twentyFourHours.charAt(1) === "00"? "AM" : parseInt(twentyFourHours.charAt(0)+twentyFourHours.charAt(1)) < 12 ? "AM" : "PM";
+    const time = hoursTwentyFourIntoTwelve+":"+minutes+" "+amOrPm
+    return time
+    }
+  }
   
 
   return (
@@ -114,7 +127,7 @@ export const HomePage = () => {
                     {elem.title}
                   </div>
                   <div style={{ display: "flex" }}>
-                    <span>{elem.time}</span>
+                    <span>{twentyFourHoursConvertionIntoTwelveHours(elem.time)}</span>
                     <span className="dropdown" style={{ marginTop: "3px", marginLeft: "10px" }}>
                       <span
                         className="dropdown-toggle d-flex align-items-center hidden-arrow"

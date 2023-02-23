@@ -31,7 +31,7 @@ export const BottomNavbar = () => {
         <nav style={{ textAlign: "center", position: "fixed", width: "100%", bottom: "0", backgroundColor: "#ff7b00" }}>
         <ul style={{ left: "0", right: "0", padding: "5px 0 20px 0", margin: "auto", justifyContent: "center", }} className="nav nav-pills mb-0" id="ex-with-icons" role="tablist">
             <li style={{margin: "0 30px"}}>
-                <span style={currentValue === "/"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px" }:{ background: "none", color: "white", fontSize: "30px" }} >
+                <span style={currentValue === "/"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px", paddingLeft: "7px" }:{ background: "none", color: "white", fontSize: "30px", paddingLeft: "7px"  }} >
                     <Link style={{ color: "white" }} to="/">
                         <i className="fas fa-tasks fa-fw me-2"></i>
                         {/* List */}
@@ -39,7 +39,7 @@ export const BottomNavbar = () => {
                 </span>
             </li>
             <li style={{margin: "0 30px"}}>
-                <span style={currentValue === "/add-task"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px" }:{ background: "none", color: "white", fontSize: "30px" }} >
+                <span style={currentValue === "/add-task"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px", paddingLeft: "7px"  }:{ background: "none", color: "white", fontSize: "30px", paddingLeft: "7px"  }} >
                 <Link style={{ color: "white" }} to="/add-task">
                     <i className="fas fa-plus-square fa-fw me-2"></i>
                     {/* Add */}
@@ -47,7 +47,7 @@ export const BottomNavbar = () => {
                 </span>
             </li>
             <li style={{margin: "0 30px"}}>
-                <span style={currentValue === "/settings"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px" }:{ background: "none", color: "white", fontSize: "30px" }}>
+                <span style={currentValue === "/settings"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px", paddingLeft: "7px"  }:{ background: "none", color: "white", fontSize: "30px", paddingLeft: "7px"  }}>
                 <Link style={{ color: "white" }} to="/settings">
                     <i className="fas fa-cog fa-fw me-2"></i>
                 {/* Settings */}

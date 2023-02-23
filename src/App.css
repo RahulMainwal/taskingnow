@@ -18,3 +18,9 @@ input:focus {
     }
   }
 
+@media screen and (max-width: 337px) {
+    #bottom-nav-ul li {
+        margin: 0;
+    }
+  }
+
