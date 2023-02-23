@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addTask } from "../store/slices/todoList";
+import { addTask, clearMessage } from "../store/slices/todoList";
 import shortid from "shortid";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AddPage = () => {
 
@@ -24,8 +26,36 @@ export const AddPage = () => {
         if (title !== "") {
             navigate("/")
         }
+  
+      
+        setTimeout(() => {
+            if(getState.error){
+                toast.warning(getState.error)
+            }
+        }, 100);
+     
+ setTimeout(() => {
+    if(getState.message){
+      toast.success(getState.message)
+    }
+   }, 500);
     }
 
+          
+    setTimeout(() => {
+        if(getState.error){
+            toast.warning(getState.error)
+        }
+        setTimeout(() => {
+            dispatch(clearMessage())
+        }, 100);
+    }, 100);
+         
+//  setTimeout(() => {
+//     if(getState.error){
+//         toast.warning(getState.error)
+//     }
+//    }, 500);
 
     return (
         <div style={getState.mode === "light" ? { backgroundColor: "#fafafa", width: "100%", paddingTop: "15px", height: "100vh" } : { backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px" }}>
@@ -57,6 +87,7 @@ export const AddPage = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }

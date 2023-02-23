@@ -37,7 +37,7 @@ const todoListSlice = createSlice({
         addTask: (state, action) => {
             const todoList = window.localStorage.getItem('todoList');
             if(action.payload.title === ""){
-              state.error = "Please atleast title!"
+              state.error = "Please fill atleast title!"
             }else{
             state.list.push(action.payload);
             if (todoList) {
@@ -105,8 +105,11 @@ const todoListSlice = createSlice({
                 validDate: state.resetDateForTask,
                 list: todoListArr}));
               state.list = [...todoListArr];
+              action.payload.status === "completed" 
+              ?
               state.message = "Hurray! Completed."
-              state.error = ""
+              :
+              state.error = "List was unticked!"
             }
           },
 
@@ -139,14 +142,18 @@ const todoListSlice = createSlice({
                 validDate: state.resetDateForTask,
                 list: todoListArr}));
               state.list = todoListArr;
-              state.message = "Cleared Tasks Successfully!"
-              state.error = ""
+              state.list.length === 0
+              ?
+              state.error = "It is already cleared!"
+              :
+              state.message = "Cleared All Tasks Successfully!"
             }
           },
           updateMode : (state, action) => {
             const todoList = window.localStorage.getItem('todoList');
             if (todoList) {
             state.mode = action.payload
+            state.message = `${action.payload} mode has been applied!`
             localStorage.setItem("todoList", JSON.stringify({
               mode: state.mode,
                 resetTime: state.resetTime,
@@ -159,6 +166,7 @@ const todoListSlice = createSlice({
             const todoList = window.localStorage.getItem('todoList');
             if (todoList) {           
             state.resetTime = action.payload
+            action.payload === "" ? state.error =  "Time has not been settled!" : state.message =  "Time has been changed successfully!"
             localStorage.setItem("todoList", JSON.stringify({
               mode: state.mode,
               resetTime: action.payload,
@@ -195,7 +203,11 @@ const todoListSlice = createSlice({
               validDate: new Date().getDate() === 31 || new Date().getDate() === 30 || new Date().getDate() === 28 || new Date().getDate() === 29 ? 1 : new Date().getDate()+1,
               list: todoListArr,
             }))
-          }
+          },
+          clearMessage: (state, action) => {
+            state.message = "";
+            state.error = ""
+          },
     }
 })
 
@@ -209,5 +221,6 @@ export const {
     updateMode,
     setTimeOfTodo,
     // resetTimeOfTodo,
-    resetTodoStatus
+    resetTodoStatus,
+    clearMessage
 } = todoListSlice.actions;

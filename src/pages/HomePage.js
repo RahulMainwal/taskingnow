@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../App.css";
-import { updateTask, updateTaskStatus, deleteTask, deleteAllTasks } from "../store/slices/todoList";
+import { updateTask, updateTaskStatus, deleteTask, deleteAllTasks,clearMessage  } from "../store/slices/todoList";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const HomePage = () => {
 
@@ -34,6 +36,14 @@ export const HomePage = () => {
   const updateStatusHandler = (elem) => {
     const newStatus = elem.status === "completed" ? "incompleted" : "completed"
     dispatch(updateTaskStatus({ id: elem.id, status: newStatus }))
+    setTimeout(() => {
+      if(getState.message){
+        toast.success(getState.message)
+      }
+      if(getState.error){
+        toast.warning(getState.error)
+      }
+     }, 100);
   }
 
   const deleteTaskHandler = () => {
@@ -57,6 +67,18 @@ export const HomePage = () => {
     }
   }
   
+  
+ setTimeout(() => {
+  if(getState.message){
+    toast.success(getState.message)
+  }
+  if(getState.error){
+    toast.warning(getState.error)
+  }
+  setTimeout(() => {
+    dispatch(clearMessage())
+  }, 100);
+ }, 500);
 
   return (
     <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", height: "100vh", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>
@@ -255,6 +277,7 @@ export const HomePage = () => {
         </div>
       </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

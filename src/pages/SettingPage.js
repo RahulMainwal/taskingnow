@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateMode, setTimeOfTodo } from "../store/slices/todoList";
+import { updateMode, setTimeOfTodo, clearMessage} from "../store/slices/todoList";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const SettingPage = () => {
     
@@ -14,10 +16,23 @@ export const SettingPage = () => {
 
     const changeModeHandler = () => {
         dispatch(updateMode(getState.mode === "light" ? "dark" : "light"))
+        setTimeout(() => {
+          if(getState.message){
+            toast.success(getState.message)
+          }
+        }, 100);
     }
 
     const resetTimeOfTodoHandler = () => {
         dispatch(setTimeOfTodo(time))
+        setTimeout(() => {
+          if(getState.message){
+            toast.success(getState.message)
+          }
+          if(getState.error){
+            toast.error(getState.error)
+          }
+        }, 100);
     }
 
     const twentyFourHoursConvertionIntoTwelveHours = (twentyFourHours) => {
@@ -32,6 +47,18 @@ export const SettingPage = () => {
         return time
         }
       }
+
+      setTimeout(() => {
+        if(getState.message){
+          toast.success(getState.message)
+        }
+        if(getState.error){
+          toast.error(getState.error)
+        }
+        setTimeout(() => {
+          dispatch(clearMessage())
+        }, 100);
+      }, 100);
       
     return (
         <div style={getState.mode === "light" ? { backgroundColor: "#fafafa",paddingTop: "15px", height: "100vh" } : { backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px" }}>
@@ -91,6 +118,7 @@ export const SettingPage = () => {
                       </div>
                     </div>
                   </div>
+                  <ToastContainer />
         </div>
     )
 }
