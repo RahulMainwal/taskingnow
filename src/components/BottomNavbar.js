@@ -29,7 +29,7 @@ export const BottomNavbar = () => {
 
     return (
         <div>
-            <nav style={{ textAlign: "center", position: "fixed", width: "100%", bottom: "0", backgroundColor: "#ff7b00" }}>
+            <nav style={{ textAlign: "center", position: "fixed", width: "100%", bottom: "0", backgroundColor: "#ff7b00", zIndex: "1" }}>
                 <ul style={{ left: "0", right: "0", padding: "5px 0 20px 0", margin: "auto", justifyContent: "center", }} className="nav nav-pills mb-0" id="ex-with-icons" role="tablist">
                     <li style={{margin: "0 30px"}}>
                         <span style={currentValue === "/"?{background: "none", color: "white", fontSize: "30px", borderBottom: "5px solid white", paddingBottom: "13px" }:{ background: "none", color: "white", fontSize: "30px" }} >
