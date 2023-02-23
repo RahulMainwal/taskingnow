@@ -103,7 +103,7 @@ export const HomePage = () => {
 
         getState.list.length === 0
           ?
-          <div style={{ textAlign: "center", paddingTop: "25vh" }}>Empty</div>
+          <div style={{ textAlign: "center", paddingTop: "25vh", paddingBottom: "30vh" }}>Empty</div>
           :
           <div id="homepage-task-list" style={{ height: "65vh", overflowY: "auto" }}>
             {
