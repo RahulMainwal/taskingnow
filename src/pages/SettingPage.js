@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMode, setTimeOfTodo, clearMessage} from "../store/slices/todoList";
 import { ToastContainer, toast } from 'react-toastify';
@@ -59,6 +59,10 @@ export const SettingPage = () => {
           dispatch(clearMessage())
         }, 100);
       }, 100);
+
+      useEffect(() => {
+        localStorage.setItem("resfeshPage", JSON.stringify(true))
+      }, [])
       
     return (
       <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", height: "100vh", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>

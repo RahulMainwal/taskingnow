@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../App.css";
 import { updateTask, updateTaskStatus, deleteTask, deleteAllTasks,clearMessage  } from "../store/slices/todoList";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
 
@@ -12,9 +13,11 @@ export const HomePage = () => {
   const [time, setTime] = useState("");
   const [status, setStatus] = useState("incompleted");
   const [changeFilterValue, setChangedFilterValue] = useState("all");
+  const [refresh, setRefresh] = useState(false);
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
 
   const getState = useSelector((state) => {
     return state.todoList
@@ -81,7 +84,24 @@ export const HomePage = () => {
   }, 100);
  }, 500);
 
+//  useEffect(() => {
+//   localStorage.setItem("resfeshPage", JSON.stringify(false))
+//  }, [])
+
+console.log(JSON.parse(localStorage.getItem("resfeshPage")))
  
+  if(JSON.parse(localStorage.getItem("resfeshPage"))){
+    localStorage.setItem("resfeshPage", JSON.stringify(false))
+    setRefresh(true)
+  }
+
+console.log(refresh)
+
+  useEffect(() => {
+    if(refresh){
+      navigate(-window.history.state.idx)
+    }
+  })
 
   return (
     <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", height: "100vh", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>

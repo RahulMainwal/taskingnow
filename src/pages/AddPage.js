@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addTask, clearMessage } from "../store/slices/todoList";
@@ -56,6 +56,10 @@ export const AddPage = () => {
 //         toast.warning(getState.error)
 //     }
 //    }, 500);
+
+useEffect(() => {
+    localStorage.setItem("resfeshPage", JSON.stringify(true))
+  }, [])
 
     return (
         <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", height: "100vh", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>
