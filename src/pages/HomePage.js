@@ -181,7 +181,7 @@ export const HomePage = () => {
                         style={getState.mode === "light"? {backgroundColor: "#fafafa"} :{backgroundColor: "#C1C1BD "}}
                       >
                         <li>
-                          <span className="dropdown-item" data-mdb-toggle="modal" href="#exampleModalToggle1" role="button" onClick={() => { setTitle(elem.title); setTime(elem.time); setId(elem.id) }}>Edit</span>
+                          <span className="dropdown-item" data-mdb-toggle="modal" href="#exampleModalToggle1" role="button" onClick={() => { setTitle(elem.title); setTime(elem.time); setId(elem.id); setStatus(elem.status); }}>Edit</span>
                         </li>
                         <li>
                           <span className="dropdown-item" data-mdb-toggle="modal" href="#exampleModalToggle2" role="button" onClick={() => { setTitle(elem.title); setTime(elem.time); setId(elem.id) }}>Delete</span>

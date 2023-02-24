@@ -174,18 +174,6 @@ const todoListSlice = createSlice({
             }))
             }
           },
-          // resetTimeOfTodo: (state, action) => {
-          //   const todoList = window.localStorage.getItem('todoList');
-          //   if (todoList) {           
-          //   state.resetDateForTask = action.payload;
-          //   localStorage.setItem("todoList", JSON.stringify({
-          //     mode: state.mode,
-          //     resetTime: state.resetTime,
-          //     validDate: action.payload,
-          //     list: state.list,
-          //   }))
-          //   }
-          // },
           resetTodoStatus: (state, action) => {
             const todoList = window.localStorage.getItem('todoList');
 
@@ -207,6 +195,15 @@ const todoListSlice = createSlice({
             state.message = "";
             state.error = ""
           },
+          resetDate: (state, action) => {
+            state.resetDateForTask = (new Date().getDate() === 31 && new Date().getMonth() === 0 || new Date().getDate() === 31 && new Date().getMonth() === 2 || new Date().getDate() === 31 && new Date().getMonth() === 4 || new Date().getDate() === 31 && new Date().getMonth() === 6 || new Date().getDate() === 31 && new Date().getMonth() === 7 || new Date().getDate() === 31 && new Date().getMonth() === 9 || new Date().getDate() === 31 && new Date().getMonth() === 11 ) || (new Date().getDate() === 30 && new Date().getMonth() === 3 || new Date().getDate() === 30 && new Date().getMonth() === 5 || new Date().getDate() === 30 && new Date().getMonth() === 8 || new Date().getDate() === 30 && new Date().getMonth() === 10 ) || (new Date().getDate() === 28 && new Date().getMonth() === 1) || (new Date().getDate() === 29 && new Date().getMonth() === 1) ? 1 : new Date().getDate()+1;
+            localStorage.setItem("todoList", JSON.stringify({
+              mode: state.mode,
+              resetTime: state.resetTime,
+              validDate: (new Date().getDate() === 31 && new Date().getMonth() === 0 || new Date().getDate() === 31 && new Date().getMonth() === 2 || new Date().getDate() === 31 && new Date().getMonth() === 4 || new Date().getDate() === 31 && new Date().getMonth() === 6 || new Date().getDate() === 31 && new Date().getMonth() === 7 || new Date().getDate() === 31 && new Date().getMonth() === 9 || new Date().getDate() === 31 && new Date().getMonth() === 11 ) || (new Date().getDate() === 30 && new Date().getMonth() === 3 || new Date().getDate() === 30 && new Date().getMonth() === 5 || new Date().getDate() === 30 && new Date().getMonth() === 8 || new Date().getDate() === 30 && new Date().getMonth() === 10 ) || (new Date().getDate() === 28 && new Date().getMonth() === 1) || (new Date().getDate() === 29 && new Date().getMonth() === 1) ? 1 : new Date().getDate()+1,
+              list: state.list,
+            }))
+          }
     }
 })
 
@@ -219,7 +216,7 @@ export const {
     deleteAllTasks,
     updateMode,
     setTimeOfTodo,
-    // resetTimeOfTodo,
     resetTodoStatus,
-    clearMessage
+    clearMessage,
+    resetDate
 } = todoListSlice.actions;
