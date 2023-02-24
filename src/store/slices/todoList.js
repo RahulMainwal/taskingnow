@@ -22,16 +22,15 @@ const initialValue = () => {
 
 
 
-
 const todoListSlice = createSlice({
     name: "todoList",
     initialState: {
         list: initialValue(),
         message: "",
         error: "",
-        mode: JSON.parse(getTodoList).mode,
-        resetDateForTask: JSON.parse(getTodoList).validDate,
-        resetTime: JSON.parse(getTodoList).resetTime,
+        mode: JSON.parse(getTodoList)? JSON.parse(getTodoList).mode : "light",
+        resetDateForTask: JSON.parse(getTodoList)?JSON.parse(getTodoList).validDate:0,
+        resetTime: JSON.parse(getTodoList)?JSON.parse(getTodoList).resetTime:"",
     },
     reducers: {
         addTask: (state, action) => {

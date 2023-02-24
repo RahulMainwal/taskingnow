@@ -61,8 +61,8 @@ export const SettingPage = () => {
       }, 100);
       
     return (
-        <div style={getState.mode === "light" ? { backgroundColor: "#fafafa",paddingTop: "15px", height: "100vh" } : { backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px" }}>
-            <div className="card" style={getState.mode === "light" ? {left: "0", right: "0", margin: "auto", padding: "20px", height: "86vh" }: { backgroundColor: "#303335", color: "#d2d3db", left: "0", right: "0", margin: "auto", padding: "20px", height: "86vh" }}>
+      <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", height: "100vh", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>
+      <div className="card" style={getState.mode === "light" ? { left: "0", right: "0", margin: "auto", padding: "20px", height: "86vh" }: { backgroundColor: "#303335", color: "#d2d3db", left: "0", right: "0", margin: "auto", padding: "20px", height: "86vh" }}>
                 <br />
                 <h1 style={{ textAlign: "center" }}>Settings</h1>
                 <br />
@@ -118,6 +118,7 @@ export const SettingPage = () => {
                       </div>
                     </div>
                   </div>
+                  <div style={{textAlign: "center", margin: "15px 0 0 0", color: "grey"}}>Developed by RAHUL MAINWAL</div>
                   <ToastContainer />
         </div>
     )

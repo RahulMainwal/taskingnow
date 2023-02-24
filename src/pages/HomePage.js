@@ -248,8 +248,6 @@ export const HomePage = () => {
           </div>
       }
 
-
-
       <div
         className="modal fade"
         id="exampleModalToggle3"
@@ -267,7 +265,7 @@ export const HomePage = () => {
               <button type="button" className="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              Your all tasks will cleared forever!
+              Your all tasks will be cleared forever!
             </div>
             <div className="modal-footer">
               <button type="button" style={{ backgroundColor: "#ff7b00", color: "white" }} className="btn btn-secondary" data-mdb-dismiss="modal" onClick={() => { deleteAllTasksHandler() }}>Yes</button>
@@ -277,6 +275,7 @@ export const HomePage = () => {
         </div>
       </div>
       </div>
+<div style={{textAlign: "center", margin: "15px 0 0 0", color: "grey"}}>Developed by RAHUL MAINWAL</div>
       <ToastContainer />
     </div>
   )
