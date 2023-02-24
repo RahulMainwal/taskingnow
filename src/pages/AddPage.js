@@ -81,7 +81,6 @@ export const AddPage = () => {
                     <br />
                     <br />
                     <br />
-                    <br />
                     <div style={{ textAlign: "center" }}>
                         <button className="btn" onClick={() => { submitHandler() }} style={{ backgroundColor: "#ff7b00", color: "white", fontSize: "20px" }}>Add</button>
                     </div>

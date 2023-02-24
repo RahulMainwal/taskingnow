@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation  } from "react-router-dom";
+import { Link, useLocation, useNavigate  } from "react-router-dom";
 import { resetTodoStatus } from "../store/slices/todoList";
 
 export const BottomNavbar = () => {
     const [currentValue, setCurrentValue] = useState("/");
     const location = useLocation();
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -25,7 +27,9 @@ export const BottomNavbar = () => {
             }
     })
 
-
+    if(location.pathname === "/"){
+        navigate(-window.history.state.idx)
+       }
 
     return (
         <nav style={{ textAlign: "center", position: "fixed", width: "100%", bottom: "0", backgroundColor: "#ff7b00" }}>

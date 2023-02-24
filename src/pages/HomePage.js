@@ -15,6 +15,7 @@ export const HomePage = () => {
 
   const dispatch = useDispatch();
 
+
   const getState = useSelector((state) => {
     return state.todoList
   });
@@ -79,6 +80,8 @@ export const HomePage = () => {
     dispatch(clearMessage())
   }, 100);
  }, 500);
+
+ 
 
   return (
     <div style={getState.mode === "light"? {backgroundColor: "#fafafa", width: "100%", height: "100vh", paddingTop: "15px"} :{backgroundColor: "#1F1D1B", width: "100%", height: "100vh", paddingTop: "15px"}}>
@@ -232,7 +235,7 @@ export const HomePage = () => {
                           <button type="button" className="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                          Title: <b>{title}</b><br />Time: <b>{time}</b><br />Status: <b>{status}</b>
+                          Title: <b>{title}</b><br />Time: <b>{time?twentyFourHoursConvertionIntoTwelveHours(time): "Not Set"}</b><br />Status: <b style={{textTransform: "capitalize"}}>{status}</b>
                         </div>
                         <div className="modal-footer">
                           <button type="button" style={{ backgroundColor: "#ff7b00", color: "white" }} className="btn btn-secondary" data-mdb-dismiss="modal" onClick={() => { deleteTaskHandler(elem) }}>Yes</button>
