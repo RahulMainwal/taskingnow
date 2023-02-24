@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation  } from "react-router-dom";
-import { resetTodoStatus, resetDate } from "../store/slices/todoList";
+import { resetTodoStatus } from "../store/slices/todoList";
 
 export const BottomNavbar = () => {
     const [currentValue, setCurrentValue] = useState("/");
@@ -15,7 +15,6 @@ export const BottomNavbar = () => {
 
     useEffect(() => {
         setCurrentValue(location.pathname)
-        dispatch(resetDate())
     }, [location.pathname])
 
     useEffect(() => {
