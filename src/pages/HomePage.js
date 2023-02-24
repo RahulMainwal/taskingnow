@@ -84,18 +84,10 @@ export const HomePage = () => {
   }, 100);
  }, 500);
 
-//  useEffect(() => {
-//   localStorage.setItem("resfeshPage", JSON.stringify(false))
-//  }, [])
-
-console.log(JSON.parse(localStorage.getItem("resfeshPage")))
- 
   if(JSON.parse(localStorage.getItem("resfeshPage"))){
     localStorage.setItem("resfeshPage", JSON.stringify(false))
     setRefresh(true)
   }
-
-console.log(refresh)
 
   useEffect(() => {
     if(refresh){
@@ -112,7 +104,7 @@ console.log(refresh)
             className="dropdown-toggle d-flex align-items-center hidden-arrow"
             id="navbarDropdownMenuAvatar"
             role="button"
-            data-mdb-toggle="dropdown"
+            data-mdb-toggle={getState.list.length === 0? "": "dropdown"}
             aria-expanded="false"
           >
             <i style={{ fontSize: "25px" }} className="fas fa-align-left"></i>
@@ -138,7 +130,7 @@ console.log(refresh)
             className="dropdown-toggle d-flex align-items-center hidden-arrow"
             id="navbarDropdownMenuAvatar"
             role="button"
-            data-mdb-toggle="dropdown"
+            data-mdb-toggle={getState.list.length === 0? "": "dropdown"}
             aria-expanded="false"
           >
             <i style={{ fontSize: "25px", padding: "0 10px" }} className="fas fa-ellipsis-v"></i>
