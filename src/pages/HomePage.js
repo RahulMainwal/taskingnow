@@ -41,9 +41,9 @@ export const HomePage = () => {
     const newStatus = elem.status === "completed" ? "incompleted" : "completed"
     dispatch(updateTaskStatus({ id: elem.id, status: newStatus }))
     setTimeout(() => {
-      if(getState.message){
-        toast.success(getState.message)
-      }
+//       if(getState.message){
+//         toast.success(getState.message)
+//       }
       if(getState.error){
         toast.warning(getState.error)
       }
@@ -73,9 +73,9 @@ export const HomePage = () => {
   
   
  setTimeout(() => {
-//   if(getState.message){
-//     toast.success(getState.message)
-//   }
+  if(getState.message){
+    toast.success(getState.message)
+  }
   if(getState.error){
     toast.warning(getState.error)
   }
