@@ -208,7 +208,8 @@ const todoListSlice = createSlice({
     },
     clearMessage: (state, action) => {
       state.message = "";
-      state.error = ""
+      state.error = "";
+      state.resetDateForTask = state.resetDateForTask;
     },
   }
 })
