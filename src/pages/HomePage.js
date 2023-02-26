@@ -91,7 +91,9 @@ export const HomePage = () => {
 
   useEffect(() => {
     if(refresh){
-      navigate(-window.history.state.idx)
+      setTimeout(() => {
+        navigate(-window.history.state.idx)
+      }, 1000)
     }
   })
 
