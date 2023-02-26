@@ -47,7 +47,7 @@ const todoListSlice = createSlice({
           window.localStorage.setItem('todoList', JSON.stringify({
             mode: state.mode,
             resetTime: state.resetTime,
-            validDate: state.validDate,
+            validDate: state.resetDateForTask,
             list: todoListArr
           }));
           state.message = "Added Successful!"
@@ -58,7 +58,7 @@ const todoListSlice = createSlice({
             JSON.stringify({
               mode: state.mode,
               resetTime: state.resetTime,
-              validDate: state.validDate,
+              validDate: state.resetDateForTask,
               list: [...action.payload]
             })
           );
@@ -209,7 +209,6 @@ const todoListSlice = createSlice({
     clearMessage: (state, action) => {
       state.message = "";
       state.error = "";
-      state.resetDateForTask = state.resetDateForTask;
     },
   }
 })
