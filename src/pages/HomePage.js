@@ -73,9 +73,9 @@ export const HomePage = () => {
   
   
  setTimeout(() => {
-//   if(getState.message){
-//     toast.success(getState.message)
-//   }
+if(getState.message){
+  toast.success(getState.message)
+  }
   if(getState.error){
     toast.warning(getState.error)
   }
