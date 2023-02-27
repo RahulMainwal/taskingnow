@@ -87,7 +87,7 @@ export const SettingPage = () => {
                     <div style={{ fontSize: "22px", display: "flex", margin: "0 10px", justifyContent: "space-between" }}>
                         <div>Set Time</div>
                         <div>
-                            <span  className="dropdown-item" data-mdb-toggle="modal" href="#exampleModalToggle1" role="button"  style={{ color: "white", backgroundColor: "#ff7b00", fontSize: "15px", padding: "5px 15px", borderRadius: "10px" }}>Set time</span>
+                            <span  className="dropdown-item" data-mdb-toggle="modal" href="#exampleModalToggle1" role="button"  style={{ color: "white", backgroundColor: "#ff7b00", fontSize: "15px", padding: "5px 15px", borderRadius: "10px" }}>Repeat Tasks at</span>
                         </div>
                     </div>
                     <hr />
