@@ -91,7 +91,7 @@ export const SettingPage = () => {
                         </div>
                     </div>
                     <hr />
-                    <div style={{ fontSize: "22px", margin: "0 10px" }}>About</div>
+                    <div style={{ fontSize: "22px", margin: "0 10px" }}><a href="https://rahulmainwal.netlify.app">About</a></div>
                 </div>
             </div>
 
